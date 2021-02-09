@@ -21,7 +21,6 @@ function add_to_cart(event){
             //Push infos in the cart
             cart = getLocalStorage();
             cart.push(course);
-            console.log(cart);
             //Set cart in localStorage
             setCart(cart);
             displayCart(cart);
@@ -87,10 +86,12 @@ function setCart(cart){
 function displayCart(cart) {
     //Selecting innercart node
     let tr = $('#innercart');  
+
+    //Remove old cart displayed
+    $('tr').remove('#tr');
+    
     //If cart isn't empty, diplay it 
     if(cart){
-        //Remove old cart displayed
-        $('tr').remove('#tr');
         //Then display new cart with all his objects
         cart.forEach(element => {
             let td = '<tr id="tr"><td><img src="'+element.image+'" style="width:30%"></td><td>'+element.title+'</td><td>'+element.price+'</td><td>1</td><td><i class="fa fa-times delete_btn" style="color:red;cursor:pointer"></i></td></tr>';
