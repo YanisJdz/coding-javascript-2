@@ -278,3 +278,48 @@ footer {
   display: block;
   margin-top: 50px;
 }
+
+.popup-overlay {
+  /*Hides pop-up when there is no "active" class*/
+  visibility: hidden;
+  position: absolute;
+  top: 0%;
+  right: 100%;
+  background: #00828a;
+  border: 3px solid #000000;
+  z-index: 9;
+  width: 25%;
+  height: 20%;
+  left: 25%;
+}
+
+.popup-overlay.active {
+  /*displays pop-up when "active" class is present*/
+  visibility: visible;
+  text-align: center;
+}
+
+.popup-content {
+  /*Hides pop-up content when there is no "active" class */
+  visibility: hidden;
+}
+
+.popup-content.active {
+  /*Shows pop-up content when "active" class is present */
+  visibility: visible;
+}
+.close {
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 30px;
+  margin: .20rem;
+  font-size: 1rem;
+  color: #000000;
+  background: #00d0db;
+  border: 1px solid #666666;
+}
+
+.close:hover {
+  background: #000000;
+  color: #ffffff;
+}

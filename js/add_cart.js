@@ -94,7 +94,7 @@ function displayCart(cart) {
     if(cart){
         //Then display new cart with all his objects
         cart.forEach(element => {
-            let td = '<tr id="tr"><td><img src="'+element.image+'" style="width:30%"></td><td>'+element.title+'</td><td>'+element.price+'</td><td>1</td><td><i class="fa fa-times delete_btn" style="color:red;cursor:pointer"></i></td></tr>';
+            let td = '<tr id="tr"><td><img src="'+element.image+'" style="width:30%"></td><td>'+element.title+'</td><td>'+element.discount+'</td><td>1</td><td><i class="fa fa-times delete_btn" style="color:red;cursor:pointer"></i></td></tr>';
             tr.append(td);
         });
     }    
