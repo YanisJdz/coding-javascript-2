@@ -17,11 +17,12 @@ function add_to_cart(event){
         //If user clicked on one of the buttons
         if (event.target == buttons[i]){
             //Get the course infos
+            console.log('coucou')
             let course = getCourseInfos(buttons[i]);
             //Push infos in the cart
             panier.push(course);
             //Set cart in localStorage
-            localStorage.setItem('panier', JSON.stringify(panier));
+            setCart(panier)
         }
     }    
 }
@@ -66,4 +67,8 @@ function getLocalStorage(){
     else{
         return table = [];
     }
+}
+
+function setCart(panier){
+    localStorage.setItem('panier', JSON.stringify(panier))
 }
