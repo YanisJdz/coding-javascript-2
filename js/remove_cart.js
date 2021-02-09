@@ -35,6 +35,7 @@ function delete_from_cart(event){
 function delete_item_from_cart(index){
     //Get cart
     let cart = getLocalStorage();
+    delete_dialog_box(index);
     //Delete item from cart
     cart.splice(index, 1)
     //Set new cart from localStorage
