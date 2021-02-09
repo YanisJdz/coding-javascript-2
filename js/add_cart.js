@@ -3,7 +3,7 @@
 let course_liste = document.querySelector('.big_container');
 course_liste.addEventListener("click" , add_to_cart);
 let panier = getLocalStorage();
-
+window.onload = displayCart(panier);
 
 /**
  * 
