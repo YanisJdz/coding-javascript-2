@@ -3,6 +3,10 @@ buttons_cart = document.querySelector('#cart-table');
 //Add event listener on cart portion
 buttons_cart.addEventListener("click" , delete_from_cart);
 
+empty_button = document.querySelector('#empty-cart')
+empty_button.addEventListener("click" , empty_display_cart);
+
+
 /**
  * Delete selected item from cart
  * @param {*} event 
@@ -34,5 +38,22 @@ function delete_item_from_cart(index){
     //Delete item from cart
     cart.splice(index, 1)
     //Set new cart from localStorage
+    setCart(cart);
+}
+
+function empty_display_cart(){
+    setEmptyCart();
+    displayCart();
+
+
+}
+
+
+
+/**
+ * Set an empty cart
+ */
+function setEmptyCart(){
+    let cart = [];
     setCart(cart);
 }
