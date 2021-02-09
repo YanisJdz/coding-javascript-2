@@ -1,3 +1,4 @@
+window.onload;
 //Stop submitting the form. To stop reloading the page
 $('#search-item').submit(function () {
     return false;
