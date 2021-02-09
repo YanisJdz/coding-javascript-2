@@ -3,7 +3,7 @@
 let course_liste = document.querySelector('.big_container');
 course_liste.addEventListener("click" , add_to_cart);
 let panier = getLocalStorage();
-
+window.onload = displayCart(panier);
 
 /**
  * 
@@ -22,6 +22,7 @@ function add_to_cart(event){
             panier.push(course);
             //Set cart in localStorage
             localStorage.setItem('panier', JSON.stringify(panier));
+            displayCart(panier);
         }
     }    
 }
@@ -66,4 +67,22 @@ function getLocalStorage(){
     else{
         return table = [];
     }
+}
+/**
+ * Display cart if not empty
+ * @param {*} panier JSON parsed LocalStorage
+ */
+function displayCart(panier) {
+    //Selecting innercart node
+    let tr = $('#innercart');  
+    //If cart isn't empty, diplay it 
+    if(panier){
+        //Remove old cart displayed
+        $('tr').remove('#tr');
+        //Then display new cart with all his objects
+        panier.forEach(element => {
+            let td = '<tr id="tr"><td><img src="'+element.image+'" style="width:30%"></td><td>'+element.title+'</td><td>'+element.price+'</td><td>1</td><td><i class="fa fa-times" style="color:red;cursor:pointer"></i></td></tr>'
+            tr.append(td)
+        });
+    }    
 }
