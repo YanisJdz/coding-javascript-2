@@ -2,11 +2,11 @@
 //Add event listener on whole page
 let course_liste = document.querySelector('.big_container');
 course_liste.addEventListener("click" , add_to_cart);
-let panier = getLocalStorage();
-window.onload = displayCart(panier);
+let cart = getLocalStorage();
+window.onload = displayCart(cart);
 
 /**
- * 
+ * Add selected item from user to cart
  * @param {*} event 
  */
 function add_to_cart(event){
@@ -17,12 +17,14 @@ function add_to_cart(event){
         //If user clicked on one of the buttons
         if (event.target == buttons[i]){
             //Get the course infos
-            console.log('coucou')
             let course = getCourseInfos(buttons[i]);
             //Push infos in the cart
-            panier.push(course);
+            cart = getLocalStorage();
+            cart.push(course);
+            console.log(cart);
             //Set cart in localStorage
-            setCart(panier)
+            setCart(cart);
+            displayCart(cart);
         }
     }    
 }
@@ -58,9 +60,9 @@ function getCourseInfos(button){
  */
 function getLocalStorage(){
     //If local storage is not empty
-    if (localStorage.getItem('panier')){
+    if (localStorage.getItem('cart')){
         //We add the old local storage to our cart
-        table = JSON.parse(localStorage.getItem('panier'))
+        table = JSON.parse(localStorage.getItem('cart'))
         return table
     }
     //If local storage is empty, we create and return an empty table
@@ -69,6 +71,30 @@ function getLocalStorage(){
     }
 }
 
-function setCart(panier){
-    localStorage.setItem('panier', JSON.stringify(panier))
+/**
+ * Set current cart in localStorage
+ * @param {*} cart JSON parsed LocalStorage
+ */
+function setCart(cart){
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+
+/**
+ * Display cart if not empty
+ * @param {*} cart JSON parsed LocalStorage
+ */
+function displayCart(cart) {
+    //Selecting innercart node
+    let tr = $('#innercart');  
+    //If cart isn't empty, diplay it 
+    if(cart){
+        //Remove old cart displayed
+        $('tr').remove('#tr');
+        //Then display new cart with all his objects
+        cart.forEach(element => {
+            let td = '<tr id="tr"><td><img src="'+element.image+'" style="width:30%"></td><td>'+element.title+'</td><td>'+element.price+'</td><td>1</td><td><i class="fa fa-times delete_btn" style="color:red;cursor:pointer"></i></td></tr>';
+            tr.append(td);
+        });
+    }    
 }
