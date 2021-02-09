@@ -6,7 +6,9 @@ $('#search-item').submit(function () {
 //Get search-bar div
 let input = document.querySelector('.search-bar');
 //Add eventListener on search-bar
-input.addEventListener('keyup', search_classes);
+input.addEventListener('keyup', search_courses);
+input.addEventListener('search', search_courses);
+
 //Get list of nodes containing title
 let titles = document.querySelectorAll('h4');
 
@@ -36,7 +38,7 @@ function search_courses(event){
             //We hide the card
             $(parent).css('display', 'none');
         }
-        
+
         // If not, it means title is found
         else {
             parent = div.parentNode.parentNode;
