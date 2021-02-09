@@ -1,11 +1,9 @@
-localStorage.setItem('article','MySQL');
-localStorage.setItem('price',9.99);
-localStorage.setItem('quantity',1);
+let tr = $('#innercart');
 
-// console.log(localStorage.getItem('article') + ' - ' +localStorage.getItem('price')+ ' - ' + localStorage.getItem('quantity'));
-
-let tr = document.querySelectorAll('tbody');
-
-console.log(tr);
-
-tr.innerHTML = ('<tr><td>'+localStorage.getItem('article')+'</td><td>'+localStorage.getItem('price')+'</td><td>'+localStorage.getItem('quantity')+'</td></tr>')
+panier = JSON.parse(localStorage.getItem('panier'));
+if(panier){
+    panier.forEach(element => {
+        let td = '<tr><td><img src="'+element.image+'" style="width:30%"></td><td>'+element.title+'</td><td>'+element.price+'</td><td>1</td><td><i class="fa fa-times" style="color:red;cursor:pointer"></i></td></tr>'
+        tr.append(td)
+    });
+}
