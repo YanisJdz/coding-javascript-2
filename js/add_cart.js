@@ -42,6 +42,11 @@ function getCourseInfos(button){
     let price = parent.querySelector('.price').innerHTML;
     let discount = parent.querySelector('.discount').innerHTML;
     let image = grandParent.querySelector('img').src;
+    stock = parent.querySelector('.stock').innerHTML
+    
+    //Remove one quantity of item
+    change_quantity(button, remove_one_quantity(title))
+
 
     //Create course object
     const course = {
@@ -98,4 +103,34 @@ function displayCart(cart) {
             tr.append(td);
         });
     }    
+}
+
+
+
+function remove_one_quantity(title){
+    let size = Object.size(COURSES);
+    for (let index = 1; index <= size; index++) {
+        if (title == COURSES[index].title){
+            if(COURSES[index].stock == 0){
+                return COURSES[index].stock   
+            }
+            else{
+                COURSES[index].stock -= 1
+            return COURSES[index].stock       
+            }
+        }    
+    }
+}
+
+function change_quantity(button, new_quantity){
+    let parent = button.parentNode
+    let grandParent = parent.parentNode;
+    if (new_quantity == 0){
+        $(grandParent).css('display', 'none');
+    }
+    else{
+        $(grandParent).css('display', 'flex');
+        parent.querySelector('.stock').innerHTML = new_quantity
+
+    }
 }
