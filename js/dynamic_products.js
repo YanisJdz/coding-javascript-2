@@ -28,7 +28,7 @@ for (let i = 1; i <= size; i++){
     let container = document.getElementById('courses__container');
     //Add template to our innerHTML
     course_item.innerHTML =       ` <figure class='course_img '>
-                                        <img class='logo' src='${img}', alt=${img}> 
+                                        <img class='logo' src='${img}' alt=${img}> 
                                     </figure> 
                                     <div class='info__card'> 
                                         <h4>${title}</h4> 
@@ -42,6 +42,10 @@ for (let i = 1; i <= size; i++){
 
     //We add every item to our container 
     container.appendChild(course_item)
+
+
+
+
 
       /*
     course_item.innerHTML =       " <figure class='course_img '>"

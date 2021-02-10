@@ -17,6 +17,12 @@ function delete_from_cart(event){
     for (let i = 0; i < del_buttons.length; i++ ){
         //If user clicked on one of the buttons
         if (event.target == del_buttons[i]){
+            //Get cart before removing an item in order to get which item we're targetting in database
+            let cart = getLocalStorage();
+            //Get title from every item in the cart
+            let title = cart[i].title
+            //Add one quantity to our database and then change displayed quantity 
+            change_quantity_from_cart(title, add_one_quantity(title))
             //Delete item from cart with specified button index
             delete_item_from_cart(i);
             //Get new cart from localStorage
@@ -45,11 +51,7 @@ function delete_item_from_cart(index){
 function empty_display_cart(){
     setEmptyCart();
     displayCart();
-
-
 }
-
-
 
 /**
  * Set an empty cart
@@ -57,4 +59,44 @@ function empty_display_cart(){
 function setEmptyCart(){
     let cart = [];
     setCart(cart);
+}
+
+/**
+ * Change our item stock
+ * We get track all DOM infos from original title within the cart
+ * @param {*} title the title of our item
+ * @param {*} new_quantity our new and updated stock quantity
+ */
+function change_quantity_from_cart(title, new_quantity){
+    //Get all items from our cart
+    let course__items = document.getElementsByClassName('course__item')
+    //Iterate on every items in our cart
+    for (let i = 0; i < course__items.length; i++){
+        //Get all titles from our items
+        let titles = course__items[i].querySelectorAll('h4')
+        //Iterate on list of title
+        for (let j = 0; j < titles.length; j++ ){
+            //If the item's title is the same, we found our item
+            if(title == titles[j].innerHTML){
+                //Get the stock div from this item
+                let stock_div = titles[j].nextElementSibling.nextElementSibling.nextElementSibling;
+                //Replace old quantity by updated quantity from our items stock
+                stock_div.getElementsByClassName('stock')[0].innerHTML = new_quantity
+                //Display item since it can only > 0
+                course__items[i].style.display = "flex";
+            }
+
+        }
+    }
+}
+
+
+function add_one_quantity(title){
+    let size = Object.size(COURSES);
+    for (let index = 1; index <= size; index++) {
+        if (title == COURSES[index].title){
+            COURSES[index].stock += 1;
+            return COURSES[index].stock;       
+        }    
+    }
 }
