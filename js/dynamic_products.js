@@ -20,6 +20,7 @@ for (let i = 1; i <= size; i++){
     let stock = json[i].stock;
     let img = json[i].img;
     let mark = json[i].mark;
+    let expiration = json[i].expiration
 
     //Create item div
     let course_item = document.createElement('div');
