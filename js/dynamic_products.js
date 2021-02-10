@@ -22,6 +22,8 @@ for (let i = 1; i <= size; i++){
     let mark = json[i].mark;
     let expiration = json[i].expiration
 
+    expirationDate = new Date(expiration);
+
     //Create item div
     let course_item = document.createElement('div');
     //Add class for css
@@ -37,7 +39,7 @@ for (let i = 1; i <= size; i++){
                                         <figure class='mark m_${mark}'> 
                                            <img src='img/rates.png'> 
                                         </figure>
-                                        <p> <span class='price'>${initial_price} €</span><span class="demo" style="color:red"></span><span class='discount'>${price} €</span> </p>
+                                        <p> <span class='price'>${initial_price} €</span><span class="demo" style="color:black;display:none">${expiration}</span><span class='discount'>${price} €</span> </p>
                                         <p> Disponible: <span class='stock'>${stock}</span></p>                                      
                                         <a class='add-to-cart' data-id='1' style='cursor: pointer;'><i class='fa fa-cart-plus'></i>Ajouter au panier</a> 
                                 </div> `

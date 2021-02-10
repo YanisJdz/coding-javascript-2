@@ -42,7 +42,8 @@ function getCourseInfos(button){
     let price = parent.querySelector('.price').innerHTML;
     let discount = parent.querySelector('.discount').innerHTML;
     let image = grandParent.querySelector('img').src;
-    stock = parent.querySelector('.stock').innerHTML
+    let expiration = parent.querySelector('.demo').innerHTML;
+    let stock = parent.querySelector('.stock').innerHTML
     
     //Remove one quantity of item
     change_quantity(button, remove_one_quantity(title))
@@ -53,7 +54,8 @@ function getCourseInfos(button){
         title : title,
         price : price,
         discount : discount,
-        image : image
+        image : image,
+        expire : expiration
     }; 
     //return the course object
     return course
