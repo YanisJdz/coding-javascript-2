@@ -2,7 +2,6 @@
 buttons_cart = document.querySelector('#cart-table');
 //Add event listener on cart portion
 buttons_cart.addEventListener("click" , delete_from_cart);
-
 empty_button = document.querySelector('#empty-cart')
 empty_button.addEventListener("click" , empty_display_cart);
 
@@ -36,20 +35,27 @@ function delete_from_cart(event){
 
 /**
  * Delete a specified item in local storage from its index
- * @param {*} index Specified index
+ * @param {Number} index Specified index
  */
 function delete_item_from_cart(index){
     //Get cart
     let cart = getLocalStorage();
+    //Display dialog box popup
     delete_dialog_box(index);
     //Delete item from cart
     cart.splice(index, 1)
     //Set new cart from localStorage
     setCart(cart);
 }
-
+/**
+ * Empty the current cart
+ */
 function empty_display_cart(){
+    //Empty cart
     setEmptyCart();
+    //Display dialog box popup
+    empty_dialog_box();
+    //Refresh cart display
     displayCart();
 }
 
