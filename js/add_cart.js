@@ -12,12 +12,15 @@ window.onload = displayCart(cart);
 function add_to_cart(event){
     //Get list of all buttons
     buttons = document.querySelectorAll('.add-to-cart');
+    let discountBool = false;
     //Iterate on all buttons
     for (let i = 0; i < buttons.length; i++ ){
         //If user clicked on one of the buttons
         if (event.target == buttons[i]){
+            if($((buttons[i]).parentNode.parentNode).hasClass("discounted") ){
+                discountBool = true;}
             //Get the course infos
-            let course = getCourseInfos(buttons[i]);
+            let course = getCourseInfos(buttons[i],discountBool);
             //Push infos in the cart
             cart = getLocalStorage();
             cart.push(course);
@@ -32,7 +35,7 @@ function add_to_cart(event){
  * Get the correct course infos from a specific button
  * @param {*} button specific button
  */
-function getCourseInfos(button){
+function getCourseInfos(button,discountBool){
     //Get Parent div
     let parent = button.parentNode;
     //Get grandparent div
@@ -48,17 +51,26 @@ function getCourseInfos(button){
     //Remove one quantity of item
     change_quantity(button, remove_one_quantity(title))
 
-
-    //Create course object
-    const course = {
-        title : title,
-        price : price,
-        discount : discount,
-        image : image,
-        expire : expiration
-    }; 
-    //return the course object
-    return course
+    if(discountBool === true){
+        //Create course object
+        const course = {
+            title : title,
+            price : discount,
+            image : image,
+            expire : expiration
+        }; 
+        //return the course object
+        return course
+    }else{
+        const course = {
+            title : title,
+            price : price,
+            image : image,
+            expire : expiration
+        }; 
+        //return the course object
+        return course
+    }
            
 }
 /**
@@ -101,7 +113,7 @@ function displayCart(cart) {
     if(cart){
         //Then display new cart with all his objects
         cart.forEach(element => {
-            let td = '<tr id="tr"><td><img src="'+element.image+'" style="width:30%"></td><td>'+element.title+'</td><td>'+element.discount+'</td><td>1</td><td><i class="fa fa-times delete_btn" style="color:red;cursor:pointer"></i></td></tr>';
+            let td = '<tr id="tr"><td><img src="'+element.image+'" style="width:30%"></td><td>'+element.title+'</td><td>'+element.price+'</td><td>1</td><td><i class="fa fa-times delete_btn" style="color:red;cursor:pointer"></i></td></tr>';
             tr.append(td);
         });
     }    

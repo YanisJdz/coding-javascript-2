@@ -1,5 +1,5 @@
 let time = $(".demo");
-let date = new Date().getTime() *1000*15;
+
 time.each(function (index) {
     let ending = new Date(parseInt($(this).text()))
     let promotions = setInterval(function()
@@ -17,9 +17,11 @@ time.each(function (index) {
             let last = ' '+days + "d " + hours + "h "+ minutes + "m " + seconds + "s ";
             $(time[index]).text(last);
             $(time[index]).css('display','');
+            $(time[index]).parent().parent().parent().addClass("discounted");
         }else{
             //Display that promotions came to end
             $(time[index]).text(" PROMOTION EXPIRÉE");
+            $(time[index]).parent().parent().parent().removeClass("discounted");
             //Changing CSS from Price and Discount
             $(time[index]).parent().find(".price")
             .css({
@@ -31,11 +33,6 @@ time.each(function (index) {
             })
             $(time[index]).parent().find(".discount")
             .css({
-                // 'color':"red",
-                // 'text-decoration':"line-through",
-                // 'font-weight': 'normal',
-                // 'font-style': 'italic',
-                // 'font-size': '1em'
                 'display':'none'
             })
             console.log("Promotions ended");
