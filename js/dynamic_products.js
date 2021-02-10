@@ -22,8 +22,6 @@ for (let i = 1; i <= size; i++){
     let mark = json[i].mark;
     let expiration = json[i].expiration
 
-    expirationDate = new Date(expiration);
-
     //Create item div
     let course_item = document.createElement('div');
     //Add class for css

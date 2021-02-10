@@ -34,7 +34,7 @@ $('.add-to-cart').on('click', function () {
             cart.effect("shake", {
                 times: 2
             }, 200);
-        }, 1500);
+        }, 1400);
         //Reduce img size to 0
         imgclone.animate({
             'width': 0,
