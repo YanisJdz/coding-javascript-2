@@ -72,20 +72,15 @@ function change_quantity_from_cart(title, new_quantity){
     let course__items = document.getElementsByClassName('course__item')
     //Iterate on every items in our cart
     for (let i = 0; i < course__items.length; i++){
-        //Get all titles from our items
-        let titles = course__items[i].querySelectorAll('h4')
-        //Iterate on list of title
-        for (let j = 0; j < titles.length; j++ ){
-            //If the item's title is the same, we found our item
-            if(title == titles[j].innerHTML){
-                //Get the stock div from this item
-                let stock_div = titles[j].nextElementSibling.nextElementSibling.nextElementSibling;
-                //Replace old quantity by updated quantity from our items stock
-                stock_div.getElementsByClassName('stock')[0].innerHTML = new_quantity
-                //Display item since it can only > 0
-                course__items[i].style.display = "flex";
-            }
-
+        let item_title =  course__items[i].querySelector('h4').innerHTML;
+        //Find cart item in our list of items by comparing titles
+        if (title == item_title){
+            //Get stock div from this item
+            let stock_div = course__items[i].getElementsByClassName('stock')[0];
+            //Replace old quantity by updated quantity from our items stock
+            stock_div.innerHTML = new_quantity;
+            //Display item since quantity can only > 0
+            course__items[i].style.display = "flex";
         }
     }
 }
