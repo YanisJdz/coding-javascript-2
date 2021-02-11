@@ -130,7 +130,6 @@ header .submenu:hover #cart::-webkit-scrollbar-thumb:hover {background: #555;}
 #courses-list h1:after {
   content: "";
   display: block;
-
   height: 15px;
   width: 100%;
   background: #00B2BD;
@@ -138,6 +137,17 @@ header .submenu:hover #cart::-webkit-scrollbar-thumb:hover {background: #555;}
   bottom: 6px;
   left: 10px;
   z-index: -1;
+}
+
+#empty-cart{
+  background: #00B2BD;
+  color: white;
+}
+
+#empty-cart:hover{
+  background: #00828a;
+  color: white;
+  transition: 0.30s;
 }
 
 .entete__courses{
@@ -271,6 +281,12 @@ header .submenu:hover #cart::-webkit-scrollbar-thumb:hover {background: #555;}
   font-size: 13px;
 }
 
+.search-bar:hover{
+  border: 2px solid #00B2BD;
+  border-radius: 5px;
+  transition: 0.08s;
+}
+
 /*
 * Footer
 */
@@ -344,13 +360,13 @@ footer {
 
 .order{
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   border: 3px solid #00828a;
-  background-color: #D9FCF9;
+  background-color: #dfeeed;
   border-radius: 10px;
   margin-top: 5%;
-  margin-left: 25%;
-  margin-right: 25%;
+  margin-left: 30%;
+  margin-right: 30%;
   padding-top: 2%;
 }
 
@@ -367,13 +383,26 @@ footer {
 
 .first-name_name, .living_place, .contact, .credit_card{
   display: flex;
+  
+}
+
+#first-name, #emailAddress, select{
+  margin-right: 20px;
+}
+
+.first-name_name input, .living_place input, .contact input, .credit_card input{
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.first-name_name input:hover, .living_place input:hover, .contact input:hover, .credit_card input:hover{
+  background: #c2f9fb;
+  transition: 0.30s;
 }
 
 #ordering{
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: 'Asap', sans-serif;
     width: 80%;
     padding-left: 10%;
   }
