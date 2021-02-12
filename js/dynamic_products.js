@@ -24,10 +24,14 @@ for (let i = 1; i <= size; i++){
 
     expirationDate = new Date(expiration);
 
+    //Create div for scroll anchor. This way we can keep transform effects on course items
+    let scroll_container = document.createElement('div')
+    scroll_container.classList.add('scroll_anchor');
     //Create item div
     let course_item = document.createElement('div');
     //Add class for css
     course_item.classList.add('course__item');
+
     //Choose our cards container
     let container = document.getElementById('courses__container');
     //Add template to our innerHTML
@@ -45,6 +49,7 @@ for (let i = 1; i <= size; i++){
                                 </div> `
 
     //We add every item to our container 
-    container.appendChild(course_item)
+    scroll_container.appendChild(course_item)
+    container.appendChild(scroll_container)
 
 }

@@ -28,21 +28,21 @@ function search_courses(event){
         //If user didnt enter anything, every container is displayed
         if (!user_input){
             //Get correct card's container div
-            parent = div.parentNode.parentNode;
+            parent = div.parentNode.parentNode.parentNode;
             //Set container to displayed
             $(parent).css('display', 'flex');
         }    
 
         //If the user input is not found in title
         if (!title.includes(user_input)){
-            parent = div.parentNode.parentNode;
+            parent = div.parentNode.parentNode.parentNode;
             //We hide the card
             $(parent).css('display', 'none');
         }
 
         // If not, it means title is found
         else {
-            parent = div.parentNode.parentNode;
+            parent = div.parentNode.parentNode.parentNode;
             $(parent).css('display', 'flex');
         }
     }    
