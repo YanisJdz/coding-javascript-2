@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Groupe 8 - Robin Maxime.P Yanis</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+    <body>
+
+        <div>
+            <a href="index.html"><img src="img/coding_factory.jpg" id="logo2"></a>
+        </div>
+
+        <h1 class="main_title">Paiement</h1>
+
+        <div class="order">
+
+            <form action="index.html" method="GET" id="ordering">
+
+                <div class="first-name_name">
+                
+                    <div>
+                    <h3 class="title">Prénom</h3>
+
+                    <input id="first-name" type="text"  size="25" minlength="2" maxlength="45">
+                    </div>    
+                    
+                    <div>
+                    <h3 class="title">Nom</h3>    
+                    
+                    <input id="name" type="text"  size="25" minlength="2" maxlength="45">
+                    </div>
+                
+                </div>     
+
+                <div class="living_place">
+
+                    <div>
+                    <h3 class="title">Pays</h3>
+                    <select name="pays" id="country">
+                        <option selected="selected"></option>
+                        <option value="Afrique_du_sud">Afrique_du_Sud </option>
+                        <option value="Algerie">Algerie </option>
+                        <option value="Allemagne">Allemagne </option>
+                        <option value="Argentine">Argentine </option>
+                        <option value="Australie">Australie </option>
+                        <option value="Bahrein">Bahrein </option>
+                        <option value="Belgique">Belgique </option>
+                        <option value="Bielorussie">Bielorussie </option>
+                        <option value="Bresil">Bresil </option>
+                        <option value="Bulgarie">Bulgarie </option>
+                        <option value="Canada">Canada </option>
+                        <option value="Chili">Chili </option>
+                        <option value="Chine">Chine </option>
+                        <option value="Chypre">Chypre </option>
+                        <option value="Colombie">Colombie </option>
+                        <option value="Danemark">Danemark </option>
+                        <option value="Espagne">Espagne </option>
+                        <option value="Estonie">Estonie </option>
+                        <option value="Etats_Unis">Etats_Unis </option>
+                        <option value="Fidji">Fidji </option>
+                        <option value="Finlande">Finlande </option>
+                        <option value="France">France </option>
+                        <option value="Gibraltar">Gibraltar </option>
+                        <option value="Grece">Grece </option>
+                        <option value="Guadeloupe">Guadeloupe </option>
+                        
+                    </select>
+                    </div>
+                        
+                        <div>
+                            <h3 class="title">Adresse</h3>
+                            
+                            <input id="address" type="text" size="25" minlength="6" maxlength="45">
+    
+                         </div>   
+                </div>
+            
+                <div class="contact">
+
+                        <div>
+                            <h3 class="title">E-mail</h3>
+
+                            <input id="emailAddress" type="email" placeholder="default@example.com" size="25"
+                            minlength="6" maxlength="45">
+                        </div>    
+                        
+                        <div>
+                            <h3 class="title">N° Téléphone</h3>
+                            
+                            <input type="tel" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="0643250714">
+                        </div>    
+                </div>
+                
+                
+           
+                
+                <div class="credit_card">
+                
+                <div>
+                    <h3 class="title">N° Carte</h3>
+                            
+                    <input id="ccn" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" 
+                    autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx">
+                </div>
+           
+                </div>
+               
+                <input type="submit" id="valider" value="Commander">
+            
+            </form>
+
+        </div>
+    
+        
+    </body>
+</html>

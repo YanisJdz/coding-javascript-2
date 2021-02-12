@@ -130,7 +130,6 @@ header .submenu:hover #cart::-webkit-scrollbar-thumb:hover {background: #555;}
 #courses-list h1:after {
   content: "";
   display: block;
-
   height: 15px;
   width: 100%;
   background: #00B2BD;
@@ -138,6 +137,17 @@ header .submenu:hover #cart::-webkit-scrollbar-thumb:hover {background: #555;}
   bottom: 6px;
   left: 10px;
   z-index: -1;
+}
+
+#empty-cart{
+  background: #00B2BD;
+  color: white;
+}
+
+#empty-cart:hover{
+  background: #00828a;
+  color: white;
+  transition: 0.30s;
 }
 
 .entete__courses{
@@ -278,6 +288,12 @@ header .submenu:hover #cart::-webkit-scrollbar-thumb:hover {background: #555;}
   font-size: 13px;
 }
 
+.search-bar:hover{
+  border: 2px solid #00B2BD;
+  border-radius: 5px;
+  transition: 0.08s;
+}
+
 /*
 * Footer
 */
@@ -329,4 +345,94 @@ footer {
 .close:hover {
   background: #000000;
   color: #ffffff;
+}
+
+.recap{
+  float: right;
+  background: #00B2BD;
+  color: white;
+  margin-right: 4%;
+}
+
+.recap:hover{
+  background: #00828a;
+  color: white;
+  transition: 0.30s;
+}
+
+#logo2{
+  width: 15%;
+  margin: 1%;
+}
+
+.order{
+  display: flex;
+  align-items: flex-start;
+  border: 3px solid #00828a;
+  background-color: #dfeeed;
+  border-radius: 10px;
+  margin-top: 5%;
+  margin-left: 30%;
+  margin-right: 30%;
+  padding-top: 2%;
+}
+
+.title { 
+  font-size: 3rem; 
+  line-height: 1.3;  
+  letter-spacing: -.1rem; 
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.main_title{
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.first-name_name, .living_place, .contact, .credit_card{
+  display: flex;
+  
+}
+
+#first-name, #emailAddress, select{
+  margin-right: 20px;
+}
+
+.first-name_name input, .living_place input, .contact input, .credit_card input{
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.first-name_name input:hover, .living_place input:hover, .contact input:hover, .credit_card input:hover{
+  background: #c2f9fb;
+  transition: 0.30s;
+}
+
+#ordering{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    padding-left: 10%;
+  }
+
+#first-name, #name, #address, #emailAddress, #phone, #ccn, #country{
+  margin-bottom: 5%;
+  font-size: 13px;
+  border: 2px solid #00828a;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#valider{
+  border-radius: 10px;
+  background: #00B2BD;
+  color: white;
+  align-self: flex-end;
+  font-size: 100%;
+  height: 14%;
+}
+
+#valider:hover{
+  background: #00828a;
+  color: white;
+  transition: 0.30s;
 }
